@@ -1,0 +1,44 @@
+2016 Apr 18 17:45:13:	com.mysql.jdbc.JDBC4PreparedStatement@67bba1c8: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '123'  ORDER BY id DESC LIMIT 1
+2016 Apr 18 17:56:24:	com.mysql.jdbc.JDBC4PreparedStatement@774c2e45: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '123'  ORDER BY id DESC LIMIT 1
+2016 Apr 18 17:56:28:	com.mysql.jdbc.JDBC4PreparedStatement@4c41b440: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '123'  ORDER BY id DESC LIMIT 1
+2016 Apr 18 17:56:31:	com.mysql.jdbc.JDBC4PreparedStatement@fbe2a6d: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '123'  ORDER BY id DESC LIMIT 1
+2016 Apr 18 17:56:34:	com.mysql.jdbc.JDBC4PreparedStatement@63be7007: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '123'  ORDER BY id DESC LIMIT 1
+2016 Apr 18 17:56:37:	com.mysql.jdbc.JDBC4PreparedStatement@453d108e: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '123'  ORDER BY id DESC LIMIT 1
+2016 Apr 21 15:00:24:	Already running.
+2016 Apr 21 15:00:29:	Already running.
+2016 Apr 21 15:08:32:	Already running.
+2016 Apr 21 15:08:39:	Already running.
+2016 Apr 22 14:07:30:	com.mysql.jdbc.JDBC4PreparedStatement@39571a: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY4'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:17:03:	com.mysql.jdbc.JDBC4PreparedStatement@26d2cefa: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:21:51:	com.mysql.jdbc.JDBC4PreparedStatement@38b136d7: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:22:01:	com.mysql.jdbc.JDBC4PreparedStatement@2d55a885: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:31:50:	com.mysql.jdbc.JDBC4PreparedStatement@dafd3c6: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:32:41:	com.mysql.jdbc.JDBC4PreparedStatement@dafd3c6: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY2'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:34:53:	com.mysql.jdbc.JDBC4PreparedStatement@331cacf: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY4'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:35:43:	com.mysql.jdbc.JDBC4PreparedStatement@43bd88f: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY0'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:36:24:	com.mysql.jdbc.JDBC4PreparedStatement@715efeea: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY3'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:36:32:	com.mysql.jdbc.JDBC4PreparedStatement@cb369c2: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY2'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:38:23:	com.mysql.jdbc.JDBC4PreparedStatement@1d71c396: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:38:34:	com.mysql.jdbc.JDBC4PreparedStatement@4901ee5c: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:45:54:	com.mysql.jdbc.JDBC4PreparedStatement@24da8a40: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY0'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:46:04:	com.mysql.jdbc.JDBC4PreparedStatement@7972a37c: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY0'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:46:50:	com.mysql.jdbc.JDBC4PreparedStatement@fe1fee8: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY4'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:47:28:	com.mysql.jdbc.JDBC4PreparedStatement@9cee850: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY3'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:48:21:	com.mysql.jdbc.JDBC4PreparedStatement@fe1fee8: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY0'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 14:48:29:	com.mysql.jdbc.JDBC4PreparedStatement@7972a37c: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY2'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:15:00:	com.mysql.jdbc.JDBC4PreparedStatement@7d26a06e: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY0'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:50:09:	Already running.
+2016 Apr 22 15:50:12:	Already running.
+2016 Apr 22 15:50:32:	com.mysql.jdbc.JDBC4PreparedStatement@347f9201: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:50:47:	com.mysql.jdbc.JDBC4PreparedStatement@676bd42a: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:57:25:	com.mysql.jdbc.JDBC4PreparedStatement@5f1b93f9: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY3'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:57:31:	com.mysql.jdbc.JDBC4PreparedStatement@5262d300: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY3'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:57:40:	com.mysql.jdbc.JDBC4PreparedStatement@26053cd3: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY2'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:57:58:	com.mysql.jdbc.JDBC4PreparedStatement@2d5958d5: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY2'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:58:04:	com.mysql.jdbc.JDBC4PreparedStatement@3eb2423c: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY3'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:59:21:	com.mysql.jdbc.JDBC4PreparedStatement@e031538: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY4'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:59:26:	com.mysql.jdbc.JDBC4PreparedStatement@1f7ce43e: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY1'  ORDER BY id DESC LIMIT 1
+2016 Apr 22 15:59:29:	com.mysql.jdbc.JDBC4PreparedStatement@6713dedc: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG5244KY0'  ORDER BY id DESC LIMIT 1
+2016 Apr 28 14:55:05:	com.mysql.jdbc.JDBC4PreparedStatement@73bc5d3f: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '2CE3210762'  ORDER BY id DESC LIMIT 1
+2016 May 09 13:41:05:	com.mysql.jdbc.JDBC4PreparedStatement@31441591: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = 'CNU317CDPN'  ORDER BY id DESC LIMIT 1
+2016 May 09 16:30:53:	com.mysql.jdbc.JDBC4PreparedStatement@2d74ac6f: SELECT laptoprecords.datein FROM laptoprecords WHERE laptoprecords.tag = '5CG448392F'  ORDER BY id DESC LIMIT 1
