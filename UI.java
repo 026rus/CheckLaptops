@@ -74,9 +74,6 @@ public class UI extends JFrame
 	private JButton btnOk = new JButton("OK");
 	private JButton btnCansel = new JButton("Reset");
 	JButton btnAdd = new JButton("ADD");
-	JButton btnTakePhoto = new JButton("Take Photo");
-	JButton btnAddPhoto = new JButton("Choose Photo");
-	JButton btnChoosePhoto = new JButton("...");
 	private JLabel lblScanOrEnter = new JLabel("Scan or enter the barcod of the laptop");
 	private JLabel lblStatusBar = new JLabel("Ready!");
 	private JProgressBar progressBar = new JProgressBar();
@@ -117,7 +114,7 @@ public class UI extends JFrame
 				{
 					new UI();
 				} catch (Exception e)
-	       			{
+	       		{
 					e.printStackTrace();
 				}
 			}
@@ -173,20 +170,6 @@ public class UI extends JFrame
 		
 		return a;
 	}
-	private void addNewLaptop(String newLaptopTag)
-	{
-		if (checkPassvord())
-		{
-			Laptop temp = new Laptop();
-			temp.setTag(newLaptopTag);
-			that.setAlwaysOnTop(false);
-			JDialog dialog = new EditLaptop(temp);
-			dialog.setModal(true);
-			dialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
-			dialog.setVisible(true);
-			that.setAlwaysOnTop(true);
-		}
-	}
 	
 	private void makeMenuBar()
 	{
@@ -201,15 +184,6 @@ public class UI extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if (checkPassvord())
-				{
-					that.setAlwaysOnTop(false);
-					JDialog dialog = new EditLaptop(null);
-					dialog.setModal(true);
-				    dialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
-					dialog.setVisible(true);
-					that.setAlwaysOnTop(true);
-				}
 			}
 		});
 		menu.add(menuItem);
@@ -244,49 +218,6 @@ public class UI extends JFrame
 		if (that != null) that.setJMenuBar(menuBar);
 	}
 	
-	private boolean checkPassvord()
-	{
-		JPanel panel = new JPanel();
-		JLabel label = new JLabel("Enter a password:");
-		JPasswordField pass = new JPasswordField(10);
-		
-		panel.add(label);
-		panel.add(pass);
-		String[] options = new String[]{"OK", "Cancel"};
-		
-		int n = JOptionPane.showOptionDialog(null,
-											panel,
-											"",
-											JOptionPane.NO_OPTION,
-											JOptionPane.PLAIN_MESSAGE,
-											null,
-											options,
-											options[0]);
-		
-		if (n == 0)
-		{
-			char[] password = pass.getPassword();
-			return isPasswordCorrect(password);
-		}
-		else
-			return false;
-	}
-	
-	private boolean isPasswordCorrect(char[] input)
-	{
-		boolean isCorrect = true;
-		char[] correctPass = {'p', 'a', 's', 's', 'w', 'o', 'r', 'd'};
-		
-		if (input.length != correctPass.length)
-			isCorrect = false;
-		else 
-			isCorrect = Arrays.equals(input, correctPass);
-		Arrays.fill(correctPass, '0');
-		
-		return isCorrect;
-	}
-	
-	
 	private void checkLaptop(String inLaptop)
 	{
 		if (!inLaptop.isEmpty())
@@ -301,8 +232,7 @@ public class UI extends JFrame
 					    Setings.getEnterNewEquipmentMessage(),
 					    "Add LapTop",
 					    JOptionPane.YES_NO_OPTION);
-				if (addYesNo == JOptionPane.YES_OPTION)
-					addNewLaptop(inLaptop);
+				if (addYesNo == JOptionPane.YES_OPTION);
 				else 
 					System.out.println("Not wont to add LapTop!!!");
 			}
@@ -318,9 +248,6 @@ public class UI extends JFrame
 				{
 					DB db = new DB();
 					boolean isin = db.isCheckIn(employee[DBConst.TAG]);
-
-					// if (rdbtnIn.isSelected()) employee[3] = "Checked In!";
-					// else  employee[3] = "Checked Out!";
 
 						if (isin ^ rdbtnIn.isSelected())
 						{

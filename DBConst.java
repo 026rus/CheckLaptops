@@ -3,24 +3,25 @@ public class DBConst
 {
 	private DBConst(){}
 	
-	public static final String DATABASE_NAME 			= "kiosk";
+	public static final String DATABASE_NAME 			= "hpdb";
+	public static final String DATABASE_NAME_KIOSK		= "kiosk";
 	
-	public static final String TABLE_LAPTOP 			= "laptops";
+	public static final String TABLE_LAPTOP 			= "inventory";
 	public static final String TABLE_EMPLOYEE 			= "employee"; 
-	public static final String TABLE_RECOREDS 			= "laptoprecords";
-	public static final String TABLE_UPDATES			= "laptopupdates";
+	public static final String TABLE_RECOREDS 			= "laptoprecords"; // not Working 
+	public static final String TABLE_UPDATES			= "laptopupdates"; // not Working 
 	
-	public static final String LAPTOP_ID 				= "laptops.id";
-	public static final String LAPTOP_TAG 				= "laptops.tag";
-	public static final String LAPTOP_EMPLOYEE 			= "laptops.empoyee_id";
-	public static final String LAPTOP_NOTES 			= "laptops.notes";
+	public static final String LAPTOP_ID 				= TABLE_LAPTOP + ".inventory_id";
+	public static final String LAPTOP_TAG 				= TABLE_LAPTOP + ".tag";
+	public static final String LAPTOP_EMPLOYEE 			= TABLE_LAPTOP + ".employee";
+	public static final String LAPTOP_NOTES 			= TABLE_LAPTOP + ".notes";
 
-	public static final String EMPLOYEE_ID 				= "employee.id";
-	public static final String EMPLOYEE_F_NAME 			= "employee.first_name";
-	public static final String EMPLOYEE_L_NAME 			= "employee.last_name";
-	public static final String EMPLOYEE_M_NAME 			= "employee.middle_name";
-	public static final String EMPLOYEE_EMAIL 			= "employee.email";
-	public static final String EMPLOYEE_PHOTO 			= "employee.photo";
+	public static final String EMPLOYEE_ID 				= TABLE_EMPLOYEE + ".id";
+	public static final String EMPLOYEE_F_NAME 			= TABLE_EMPLOYEE + ".first_name";
+	public static final String EMPLOYEE_L_NAME 			= TABLE_EMPLOYEE + ".last_name";
+	public static final String EMPLOYEE_M_NAME 			= TABLE_EMPLOYEE + ".middle_name";
+	public static final String EMPLOYEE_EMAIL 			= TABLE_EMPLOYEE + ".email";
+	public static final String EMPLOYEE_PHOTO 			= TABLE_EMPLOYEE + ".photo";
 
 	public static final String RECORDS_ID 				= "records.id";
 	public static final String RECORDS_TAG 				= "records.tag";
@@ -31,15 +32,11 @@ public class DBConst
 	public static final String DB_USER_NAME 			= "kioskuser";
 	public static final String DB_USER_PASS 			= "kioskuser";
 
-	public static final String UPDATE_LAPTOP_UPDATES	= "laptopupdates";
-	public static final String UPDATE_LAPTOP_RECORDS	= "laptoprecords";
-	public static final String UPDATE_LAPTOP_S			= "laptops";
-	
-	public static final String LAPTOPRECORDS_ID 		= "laptoprecords.id";
-	public static final String LAPTOPRECORDS_TAG		= "laptoprecords.tag";
-	public static final String LAPTOPRECORDS_EMPLOYEE	= "laptoprecords.employee";
-	public static final String LAPTOPRECORDS_DATEIN		= "laptoprecords.datein";
-	public static final String LAPTOPRECORDS_DATEOUT	= "laptoprecords.dateout";
+	public static final String LAPTOPRECORDS_ID 		= TABLE_RECOREDS + ".id";
+	public static final String LAPTOPRECORDS_TAG		= TABLE_RECOREDS + ".tag";
+	public static final String LAPTOPRECORDS_EMPLOYEE	= TABLE_RECOREDS + ".employee";
+	public static final String LAPTOPRECORDS_DATEIN		= TABLE_RECOREDS + ".datein";
+	public static final String LAPTOPRECORDS_DATEOUT	= TABLE_RECOREDS + ".dateout";
 
 	public static final String PEOPLE_FOLDER			= "people";
 	public static final String PORT						= "3306";

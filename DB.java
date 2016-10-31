@@ -15,15 +15,20 @@ public class DB
 	private ResultSet rs = null;
 	PreparedStatement ps = null;
 	private String urlDB				= "jdbc:mysql://" + Setings.getServerIP() + ":"+DBConst.PORT+"/" + DBConst.DATABASE_NAME;
+	private String urlkioskDB			= "jdbc:mysql://" + Setings.getServerIP() + ":"+DBConst.PORT+"/" + DBConst.DATABASE_NAME_KIOSK;
 	private String urlDBhttp			= "http://"+ Setings.getServerIP() + "/" + DBConst.DATABASE_NAME;
 	private String urlPeopelfolder		= "/"+ DBConst.PEOPLE_FOLDER +"/";
 	private String dbUserName			= DBConst.DB_USER_NAME;
 	private String dbUserPassword		= DBConst.DB_USER_PASS;
 	private String correntuser			= "";
-	private final String LAPTOP_TABLE_U		= DBConst.UPDATE_LAPTOP_UPDATES;
-	private final String LAPTOP_TABLE_R		= DBConst.UPDATE_LAPTOP_RECORDS;
-	private final String LAPTOP_TABLE_S		= DBConst.UPDATE_LAPTOP_S;
 	
+	public void connectkioskDB() throws SQLException
+	{
+		correntuser	= System.getProperty("user.name");
+		con = DriverManager.getConnection( urlkioskDB, dbUserName, dbUserPassword  );
+		st = con.createStatement();
+	}
+
 	public void connectDB() throws SQLException
 	{
 		correntuser	= System.getProperty("user.name");
@@ -94,7 +99,7 @@ public class DB
 	public Object[][] getLaptopTable() throws SQLException
 	{
 		connectDB();
-		ps = con.prepareStatement("SELECT * FROM " + LAPTOP_TABLE_S);
+		ps = con.prepareStatement("SELECT * FROM " + DBConst.TABLE_LAPTOP);
 		rs = ps.executeQuery();
 		
 		int size = 0;
@@ -164,38 +169,6 @@ public class DB
 	{
 		return new String[] {"ID", "First Name", "Middle Name", "Last Name", "Email", "Photo"};
 	}
-/* -------------------------------------------------------------------------------------*/	
-	
-	public int addEmployee(Employee emp) throws SQLException
-	{
-		int retval = -1;
-		if (emp == null) 
-		{
-			return retval;
-		}
-
-		String 	First_name		= emp.getFirst_name(),
-				Middle_name 	= emp.getMiddle_name(),
-				Last_name		= emp.getLast_name(),
-				email			= emp.getEmail(),
-				photo			= emp.getPhoto();
-		
-		
-		ps = con.prepareStatement("INSERT INTO " + DBConst.TABLE_EMPLOYEE + " VALUES(null, ?, ?, ?, ?, ? )",
-									Statement.RETURN_GENERATED_KEYS);
-		ps.setString(1, First_name);
-		ps.setString(2, Middle_name);
-		ps.setString(3, Last_name);
-		ps.setString(4, email);
-		ps.setString(5, photo);
-		System.out.println("Photo goint to DB: " + photo);
-		retval = ps.executeUpdate();
-		
-		ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_U + " VALUES(null,  ?, NOW() )");
-		ps.setString(1, correntuser);
-		ps.execute();
-		return retval;
-	}
 /* -------------------------------------------------------------------------------------*/
 	public boolean updatetLaptop(Laptop nlaptop) throws SQLException
 	{
@@ -222,41 +195,6 @@ public class DB
 		
 		return true;
 	}
-/* -------------------------------------------------------------------------------------*/
-
-	public int addLaptop(Laptop nlaptop) throws SQLException
-	{
-		int 	retval		= -1;
-		
-		if (nlaptop == null) {
-			retval = st.executeUpdate("INSERT INTO " 
-									+ DBConst.TABLE_LAPTOP 
-									+ " VALUES(null, null, null, null)"
-									, Statement.RETURN_GENERATED_KEYS);
-			ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_U + " VALUES(null,  ?, NOW() )");
-			ps.setString(1, correntuser);
-			ps.execute();
-			return retval;
-		}
-		String 	Tag			= nlaptop.getTag(),
-				Notes 		= nlaptop.getNotes();
-		int 	Emp_ID		= nlaptop.getEmployeeID();
-		
-		if (Notes == null) Notes = "";
-		
-		ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_S + " VALUES(null, ?, ?, ? )",
-									Statement.RETURN_GENERATED_KEYS);
-		ps.setString(1, Tag);
-		ps.setInt(2, Emp_ID);
-		ps.setString(3, Notes);
-		retval = ps.executeUpdate();
-		
-		ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_U + " VALUES(null,  ?, NOW() )");
-		ps.setString(1, correntuser);
-		ps.execute();
-		
-		return retval; 
-	}
 
 /* --------------------------------------------------------------------------------------------------------*
 	public Laptop getLaptopByID(int ID) throws SQLException
@@ -268,7 +206,7 @@ public class DB
 				Notes = null,
 				Photo = null;
 		
-		ps = con.prepareStatement("SELECT * FROM " + LAPTOP_TABLE_S + " WHERE id=?");
+		ps = con.prepareStatement("SELECT * FROM " + DBConst.TABLE_LAPTOP + " WHERE id=?");
 		ps.setInt(1, ID);
 		
 		rs = ps.executeQuery();
@@ -287,43 +225,15 @@ public class DB
 		return new Laptop(ID, Tag, Name, FirstName, LastName, Notes, Photo );
 	}
 /* --------------------------------------------------------------------------------------------------------*/	
-	public void deleteLaptopByID(int ID) throws SQLException
-	{
-		ps = con.prepareStatement("DELETE FROM " + LAPTOP_TABLE_S + " WHERE id=?");
-		ps.setInt(1, ID);
-		ps.execute();
-
-		ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_U + " VALUES(null,  ?, NOW() )");
-		ps.setString(1, correntuser);
-		ps.execute();
-		
-	}
-
-	public void addEquipment(String tag, String name, String firstname, String lastname, String notes, String photo) throws SQLException
-	{
-		
-		connectDB();
-		ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_S + " VALUES(NULL, ?, ?, ?, ?, ?, ?)");
-		ps.setString(1, tag);
-		ps.setString(2, name);
-		ps.setString(3, firstname);
-		ps.setString(4, lastname);
-		ps.setString(5, notes);
-		ps.setString(6, photo);
-		
-		ps.execute();
-		
-		disconnectDB ();
-	}
 	
 	public boolean addRecord(String tag, int employee, boolean in) throws SQLException
 	{
 		boolean retval = false;
 		connectDB();
 		if (in)
-			ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_R + " VALUES(NULL, ?, ?, NOW(), NULL)");
+			ps = con.prepareStatement("INSERT INTO " + DBConst.TABLE_RECOREDS + " VALUES(NULL, ?, ?, NOW(), NULL)");
 		else
-			ps = con.prepareStatement("INSERT INTO " + LAPTOP_TABLE_R + " VALUES(NULL, ?, ?, NULL, NOW() )");
+			ps = con.prepareStatement("INSERT INTO " + DBConst.TABLE_RECOREDS + " VALUES(NULL, ?, ?, NULL, NOW() )");
 
 		ps.setString(1, tag);
 		ps.setInt(2, employee);
@@ -358,7 +268,7 @@ public class DB
 	public void addExitRecord(String tag) throws SQLException
 	{
 		connectDB();
-		ps = con.prepareStatement("UPDATE " + LAPTOP_TABLE_R + " SET dateout = NOW() "
+		ps = con.prepareStatement("UPDATE " + DBConst.TABLE_RECOREDS + " SET dateout = NOW() "
 				+ "WHERE dateout is NULL AND teg=? ORDER BY datein DESC LIMIT 1");
 		ps.setString(1, tag);
 		ps.execute();
@@ -368,7 +278,7 @@ public class DB
 	public boolean haveTempBadge(String fname, String lname) throws SQLException
 	{
 		List<String> 	employee  = new ArrayList<String>();
-		connectDB();
+		connectkioskDB();
 		ps = con.prepareStatement("select * from records "
 				+ "WHERE true "
 //				+ "DATE_SUB(CURDATE(), INTERVAL 5 DAY) <= datein "
